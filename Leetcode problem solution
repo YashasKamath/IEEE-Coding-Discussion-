@@ -1,0 +1,28 @@
+class Solution {
+public:
+    int maxChunksToSorted(vector<int>& arr) {
+        int n=arr.size(),count=1,p=0;
+        for(int i=0;i<n;){
+            if(arr[i]==n-1)
+                return count;
+            if(arr[i]==i){
+                count++;
+                i++;
+                p=i;
+            }
+            else if(arr[i]>i){
+                i=arr[i];
+                M:for(int j=i;j>p;j--)
+                    if(arr[j]>i){
+                        i=arr[j];
+                        goto M;
+                    }
+                if(i==n-1)
+                    return count;
+                else count++;
+                i++;
+            }
+        } 
+        return count;
+    }
+};
