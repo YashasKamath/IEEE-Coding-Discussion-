@@ -1,0 +1,48 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long int ll;
+int main()
+{
+    vector <ll> p,a;
+    ll s,b,e,k,flag=1;
+    cin>>s;
+    ll arr[100]={0};
+    for(int i=0;i<s;i++)
+    {
+        cin>>k;
+        p.push_back(k);
+    }
+    for(int i=0;i<s;i++)
+    {
+        cin>>k;
+        a.push_back(k);
+    }
+    for(int i=0;i<s;i++)
+    for(int j=p[i]-a[i];j<=p[i]+a[i];j++)
+    arr[j]=1;
+    cin>>b>>e;
+    if(b>e){
+    for(int i=e;i<=b;i++)
+    if(arr[i]!=1)
+    {
+        cout<<"NO";
+        flag=0;
+        break;
+    }
+    if(flag)
+    cout<<"YES";
+    }
+    else {
+    for(int i=b;i<=e;i++)
+    if(arr[i]!=1)
+    {
+        cout<<"NO";
+        flag=0;
+        break;
+    }
+    if(flag)
+    cout<<"YES";
+    }
+    return 0;
+}
+
